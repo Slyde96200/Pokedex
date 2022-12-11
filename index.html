@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECF Blanc (Pokedex)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <img src="./images/Pokeball.png">
+    <h1>Pokédex</h1>
+  </header>
+
+  <div id="poke_container" class="poke-container">
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">&ShortLeftArrow;</span>
+
+        <nav class="info">
+          <p class="name-modal"></p>
+          <p class="number-modal"></p>
+        </nav>
+
+        <div class="image-front">
+          <img class="pokemon-image" src="" alt="pokemon">
+        </div>
+        <section id="content">
+          <div class="type">
+            
+            <p class="type1"></p>
+            <br>
+            <p class="type2"></p>
+          </div>
+          <p id="section-subtitle">About</p>
+          <div class="caracteristiques">
+            <div class="part" id="part1">
+              <p></p>
+              <p>Weight</p>
+            </div>
+            <div class="part" id="part2">
+              <p></p>
+              <p>Height</p>
+            </div>
+            <div class="part" id="part3">
+              <div class="ability1"></div>
+              <div class="ability2"></div>
+              <p>Moves</p>
+            </div>
+          </div>
+          <div class="text">
+            <p></p>
+          </div>
+          <p id="section-subtitle">Base Stats</p>
+          <div class="stat">
+            <div class="bloc">
+              <div class="kiwi"></div>
+              <div class="Name">
+                <div>HP</div>
+                <div>ATK</div>
+                <div>DEF</div>
+                <div>SATK</div>
+                <div>SDEF</div>
+                <div>SPD</div>
+              </div>
+              <div class="bar"></div>
+              <div class="valeur">
+                <div class="hp"></div>
+                <div class="atk"></div>
+                <div class="def"></div>
+                <div class="satk"></div>
+                <div class="sdef"></div>
+                <div class="spd"></div>
+              </div>
+              <div class="stats">
+                <progress id="hpstat" max="100" value="70"> 70% </progress>
+                <progress id="atkstat" max="100" value="70"> 70% </progress>
+                <progress id="defstat" max="100" value="70"> 70% </progress>
+                <progress id="satkstat" max="100" value="70"> 70% </progress>
+                <progress id="sdefstat" max="100" value="70"> 70% </progress>
+                <progress id="spdstat" max="100" value="70"> 70% </progress>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
