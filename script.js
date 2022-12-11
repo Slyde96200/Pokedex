@@ -19,15 +19,11 @@ const colors = {
 };
 
 const main_types = Object.keys(colors);
-
-console.log(main_types);
-
 const fetchPokemons = async () => {
     for (let i = 1; i <= pokemons_number; i++) {
         await getPokemon(i);
     }
 }
-
 /* API */
 const getPokemon = async id => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -36,20 +32,15 @@ const getPokemon = async id => {
     console.log(pokemon);
     createPokemonCard(pokemon);
 }
-
 fetchPokemons();
-
 function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('button');
     pokemonEl.classList.add('pokemon');
-
     const poke_types = pokemon.types.map(el => el.type.name);
     const type = main_types.find(type => poke_types.indexOf(type) > -1);
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const color = colors[type];
-
     pokemonEl.style.backgroundColor = color;
-
     const pokeInnerHTML = `
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" />
@@ -59,17 +50,12 @@ function createPokemonCard(pokemon) {
             <h3 class="name">${name}</h3>
             <small class="type2.0">Type : <span>${type}</span></small>
         </div>
-
     `;
-
     pokemonEl.innerHTML = pokeInnerHTML;
-
     poke_container.appendChild(pokemonEl)
-
     pokemonEl.addEventListener('click', function () {
         modal.classList.toggle("show-modal");
-
-        /* afficher le poids */
+        /* display weight */
         document.querySelector(`#part1 p`).innerHTML = `${pokemon.weight} kg`;
 
         /* display height */
@@ -79,29 +65,23 @@ function createPokemonCard(pokemon) {
         document.querySelector('#part3 .ability1').innerHTML = `${pokemon.abilities[0].ability.name[0].toUpperCase() + pokemon.abilities[0].ability.name.slice(1)}`;
         if (pokemon.abilities[1]) {
             document.querySelector('#part3 .ability2').innerHTML = `${pokemon.abilities[1].ability.name[0].toUpperCase() + pokemon.abilities[1].ability.name.slice(1)}`;
-        }else {
-            // rien
         }
-
+        else {  
+        }
         /* display name of pokémon */
         document.querySelector(`.name-modal`).innerHTML = `${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}`;
-
-        /* display l'id of pokémon */
+        /* display ID of pokémon */
         document.querySelector(`.number-modal`).innerHTML = `#${pokemon.id.toString().padStart(3, '0')}`;
-
         /* pic of window */
         let pokemonImage= document.querySelector(`.pokemon-image`);
             pokemonImage.src = `${pokemon.sprites.front_default}`;
-
         /* display types of pokemons */ 
         document.querySelector(`.type1`).innerHTML = `${pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1)}`
         if (pokemon.types[1]) {
             document.querySelector(`.type2`).innerHTML = `${pokemon.types[1].type.name[0].toUpperCase() + pokemon.types[1].type.name.slice(1)}`
         }
         else {document.querySelector(`.type2`).innerHTML =""}
-        
-
-
+   
         /* display comp */
         document.querySelector('.hp').innerHTML = pokemon.stats[0].base_stat.toString().padStart(3, '0');
         document.querySelector('.atk').innerHTML = pokemon.stats[1].base_stat.toString().padStart(3, '0');
@@ -112,17 +92,13 @@ function createPokemonCard(pokemon) {
     });
 
 };
-
 /* display modal window */
-
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".poke-container");
 let closeButton = document.querySelector(".close-button");
-
 function toggleModal() {
     modal.classList.toggle("show-modal");
 }
-
 function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
