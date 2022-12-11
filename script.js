@@ -72,10 +72,10 @@ function createPokemonCard(pokemon) {
         /* afficher le poids */
         document.querySelector(`#part1 p`).innerHTML = `${pokemon.weight} kg`;
 
-        /* afficher la taille */
+        /* display height */
         document.querySelector(`#part2 p`).innerHTML = `${pokemon.height} m`;
 
-        /* afficher les moves */
+        /* display moves */
         document.querySelector('#part3 .ability1').innerHTML = `${pokemon.abilities[0].ability.name[0].toUpperCase() + pokemon.abilities[0].ability.name.slice(1)}`;
         if (pokemon.abilities[1]) {
             document.querySelector('#part3 .ability2').innerHTML = `${pokemon.abilities[1].ability.name[0].toUpperCase() + pokemon.abilities[1].ability.name.slice(1)}`;
@@ -83,17 +83,17 @@ function createPokemonCard(pokemon) {
             // rien
         }
 
-        /* afficher le nom du pokémon */
+        /* display name of pokémon */
         document.querySelector(`.name-modal`).innerHTML = `${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}`;
 
-        /* afficher l'id du pokémon */
+        /* display l'id of pokémon */
         document.querySelector(`.number-modal`).innerHTML = `#${pokemon.id.toString().padStart(3, '0')}`;
 
-        /* image à l'apparition de la fenêtre */
+        /* pic of window */
         let pokemonImage= document.querySelector(`.pokemon-image`);
             pokemonImage.src = `${pokemon.sprites.front_default}`;
 
-        /* afficher le(s) type(s) du pokémon */ 
+        /* display types of pokemons */ 
         document.querySelector(`.type1`).innerHTML = `${pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1)}`
         if (pokemon.types[1]) {
             document.querySelector(`.type2`).innerHTML = `${pokemon.types[1].type.name[0].toUpperCase() + pokemon.types[1].type.name.slice(1)}`
@@ -102,7 +102,7 @@ function createPokemonCard(pokemon) {
         
 
 
-        /* afficher ses compétences */
+        /* display comp */
         document.querySelector('.hp').innerHTML = pokemon.stats[0].base_stat.toString().padStart(3, '0');
         document.querySelector('.atk').innerHTML = pokemon.stats[1].base_stat.toString().padStart(3, '0');
         document.querySelector('.def').innerHTML = pokemon.stats[2].base_stat.toString().padStart(3, '0');
@@ -113,7 +113,7 @@ function createPokemonCard(pokemon) {
 
 };
 
-/* création fenêtre modale */
+/* display modal window */
 
 let modal = document.querySelector(".modal");
 let trigger = document.querySelector(".poke-container");
@@ -128,7 +128,6 @@ function windowOnClick(event) {
         toggleModal();
     }
 }
-
-/* trigger.addEventListener("click", toggleModal); */
+trigger.addEventListener("click", toggleModal); 
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
