@@ -89,6 +89,7 @@ function createPokemonCard(pokemon) {
         document.querySelector('.satk').innerHTML = pokemon.stats[3].base_stat.toString().padStart(3, '0');
         document.querySelector('.sdef').innerHTML = pokemon.stats[4].base_stat.toString().padStart(3, '0');
         document.querySelector('.spd').innerHTML = pokemon.stats[5].base_stat.toString().padStart(3, '0');
+        document.querySelector('.type1').style.backgroundColor = color;
     });
 
 };
